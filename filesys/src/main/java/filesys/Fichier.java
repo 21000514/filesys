@@ -3,16 +3,21 @@ package filesys;
 import Exceptions.FichierTailleNegativeException;
 
 /**
- * Write a description of class Fichier here.
+ * Classe Fichier
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author (RASAMOELA Gilberto) 
+ * @version (22/04/2013)
  */
 public class Fichier extends Entite
 {
     // instance variables - replace the example below with your own
     private int taille;
- 
+    /**
+     * Constructeur de la classe Fichier.
+     * Elle necessite un nom et une taille entres en parametre
+     * @param parNom, nom du fichier
+     * @param parTaille, taille du fichier
+     */
     public Fichier(String parNom,int parTaille) throws FichierTailleNegativeException
     {
         type="F";
@@ -25,7 +30,10 @@ public class Fichier extends Entite
         }
         taille=parTaille;
     }
-    
+    /**
+     * Retourne la taille du fichier
+     * @return taille du fichier
+     */
     public int getTaille()
     {
      return taille;   
