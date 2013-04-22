@@ -2,15 +2,13 @@ package filesys;
 
 import Exceptions.FichierTailleNegativeException;
 
-/**
- * Classe Fichier
- * 
- * @author (RASAMOELA Gilberto) 
+/** Classe Fichier.
+ * @author (RASAMOELA Gilberto)
  * @version (22/04/2013)
  */
 public class Fichier extends Entite
 {
-    // instance variables - replace the example below with your own
+    /**Taille du fichier.*/
     private int taille;
     /**
      * Constructeur de la classe Fichier.
@@ -18,17 +16,16 @@ public class Fichier extends Entite
      * @param parNom, nom du fichier
      * @param parTaille, taille du fichier
      */
-    public Fichier(String parNom,int parTaille) throws FichierTailleNegativeException
+    public Fichier(String parNom, int parTaille) throws FichierTailleNegativeException
     {
-        type="F";
-        
-        nom=parNom;
+        type = "F";
+        nom = parNom;
 
         if (parTaille < 0)
         {
         	throw new FichierTailleNegativeException("La taille du fichier est negative");
         }
-        taille=parTaille;
+        taille = parTaille;
     }
     /**
      * Retourne la taille du fichier

@@ -1,19 +1,14 @@
 package filesys;
 
-/**
- * Classe Entite
- * 
- * 
- * @author (RASAMOELA Gilberto) 
+/**Classe Entite.
+ * @author (RASAMOELA Gilberto)
  * @version (22/04/2013)
  */
 public abstract class Entite
 {
     protected String type;
     protected String nom;
-    
-    /**
-     * Methode abstraite retournant la taille de l'Entite
+    /**Methode abstraite retournant la taille de l'Entite
      */
     public abstract int getTaille();
     
