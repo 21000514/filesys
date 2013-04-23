@@ -26,6 +26,7 @@ public class TestRepertoire {
 	@Test
 	public void testRepertoire() {
 		Repertoire r = new Repertoire();
+		assertNotNull(r);
 		assertTrue(r.getType() != null);
 	}
 
@@ -40,6 +41,7 @@ public class TestRepertoire {
 
 		try {
 			pere.add(r1);
+			assertFalse(pere.equals(r1));
 		} catch (AddNullException e) {
 			e.printStackTrace();
 		} catch (NomExistePasException e) {
@@ -47,7 +49,7 @@ public class TestRepertoire {
 		} catch (IsInHimselfException e) {
 			e.printStackTrace();
 		}
-		assertFalse(pere.equals(r1));
+		
 	}
 	/** 
 	 * Test de la méthode de détection qu'un répertoire est dans lui-même
@@ -58,6 +60,7 @@ public class TestRepertoire {
 		Repertoire r1 = new Repertoire("r1");
 		try {
 			r1.add(r1);
+			assertTrue(r1.isInHimself(r1));
 		} catch (AddNullException e1) {
 			e1.printStackTrace();
 		} catch (NomExistePasException e1) {
@@ -65,7 +68,7 @@ public class TestRepertoire {
 		} catch (IsInHimselfException e1) {
 			e1.printStackTrace();
 		}
-		assertTrue(r1.isInHimself(r1));
+		
 	}
 	/** 
 	 * Teste qu'un répertoire ajouté n'a pas le même nom qu'un répertoire déjà présent
@@ -79,6 +82,10 @@ public class TestRepertoire {
 		
 		try {
 			r1.add(r2);
+			for (Entite e : r1.getContenu())
+			{
+			assertTrue(r1.getNom() != e.getNom());
+			}
 		} catch (AddNullException e) {
 			e.printStackTrace();
 		} catch (NomExistePasException e) {
@@ -86,10 +93,7 @@ public class TestRepertoire {
 		} catch (IsInHimselfException e) {
 			e.printStackTrace();
 		}
-		for (Entite e : r1.getContenu())
-		{
-		assertTrue(r1.getNom() != e.getNom());
-		}
+		
 		
 	}
 
